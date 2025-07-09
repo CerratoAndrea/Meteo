@@ -44,7 +44,7 @@ Bash
 java -jar target/il-nome-del-tuo-jar.jar
 
 Apri il tuo browser e vai a:
-http://localhost:8080/
+http://localhost:8080
 
 Dockerizzazione
 
