@@ -32,7 +32,7 @@ Questo progetto è un'applicazione web minimalista che permette agli utenti di s
 ### Clona la repository
 ```sh
 git clone https://github.com/CerratoAndrea/Meteo.git
-cd meteo
+cd Meteo
 ```
 
 ### Compila il progetto
