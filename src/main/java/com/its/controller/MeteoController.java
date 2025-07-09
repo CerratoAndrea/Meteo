@@ -9,33 +9,39 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.its.dto.MeteoDto;
+import com.its.dto.MeteoSettimanaleDto; // Import aggiunto
 import com.its.service.MeteoService;
 
 @Controller
 public class MeteoController {
-	
-	 @Autowired
-	    private MeteoService meteoService;
 
-	    private static final List<String> CITTA = List.of("Roma", "Milano", "Napoli", "Torino","Firenze", "Venezia","Bologna","Genova", "Palermo","Bari");
+    @Autowired
+    private MeteoService meteoService;
 
-	    @GetMapping("/")
-	    public String index(Model model) {
-	        model.addAttribute("cittaDisponibili", CITTA);
-	        return "index";
-	    }
+    private static final List<String> CITTA = List.of("Roma", "Milano", "Napoli", "Torino", "Firenze", "Venezia", "Bologna", "Genova", "Palermo", "Bari");
 
-	   
-	    @GetMapping("/meteo")
-	    public String meteo(@RequestParam(name="citta", required=false, defaultValue="Roma") String citta,
-	                       Model model) {
-	        model.addAttribute("cittaDisponibili", CITTA);
-	        model.addAttribute("cittaSelezionata", citta);
+    @GetMapping("/")
+    public String index(Model model) {
+        model.addAttribute("cittaDisponibili", CITTA);
+        return "index";
+    }
 
-	        MeteoDto meteo = meteoService.getMeteoPerCitta(citta);
-	        model.addAttribute("temperatura", meteo.getTemperatura());
-	        model.addAttribute("percepita", meteo.getTemperaturaPercepita());
+    @GetMapping("/meteo")
+    public String meteo(@RequestParam(name="citta", required=false, defaultValue="Roma") String citta,
+                        Model model) {
+        model.addAttribute("cittaDisponibili", CITTA);
+        model.addAttribute("cittaSelezionata", citta);
 
-	        return "meteo";
-}
+        MeteoDto meteo = meteoService.getMeteoPerCitta(citta);
+        model.addAttribute("temperatura", meteo.getTemperatura());
+        model.addAttribute("percepita", meteo.getTemperaturaPercepita());
+
+        // Recupera i dati settimanali
+        MeteoSettimanaleDto meteoSettimanale = meteoService.getMeteoSettimanalePerCitta(citta);
+        model.addAttribute("dateMeteo", meteoSettimanale.getDate());
+        model.addAttribute("tempMaxMeteo", meteoSettimanale.getTemperatureMassime());
+        model.addAttribute("tempMinMeteo", meteoSettimanale.getTemperatureMinime());
+
+        return "meteo";
+    }
 }
