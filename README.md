@@ -35,7 +35,7 @@ cd C:\Users\TuoUtente\Documents\Progetti
 o
 cd ~/Documenti/Progetti
 
-Clona il repository del progetto. Sostituisci <URL_DEL_TUO_REPOSITORY> con l'URL effettivo del repository GitHub del progetto (es. https://github.com/tuo-utente/nome-repo.git):
+Clona il repository del progetto.
 git clone https://github.com/CerratoAndrea/Meteo.git
 
 Entra nella directory del progetto che hai appena scaricato:
