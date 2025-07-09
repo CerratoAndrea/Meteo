@@ -11,8 +11,6 @@ Contenuti:
 - Dockerizzazione
 - Struttura del Progetto
 - API Esterna
-- 
-
 
 Funzionalità
 Selezione Città: Un'interfaccia utente semplice permette di scegliere tra diverse città italiane (Roma, Milano, Napoli, Torino).
@@ -55,7 +53,7 @@ Una volta che l'immagine è stata costruita con successo, puoi avviare l'applica
 Avvia il container Docker:
 
 docker run -p 8080:8080 meteo-app:1.0
--p 8080:8080: meteo-app:1.0: 
+-p 8080:8080: meteo-app:1.0:
 
 Accedi all'applicazione aprendo il tuo browser web e visitando l'indirizzo:
 
