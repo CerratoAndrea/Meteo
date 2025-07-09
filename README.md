@@ -57,4 +57,4 @@ docker run -p 8080:8080 meteo-app:1.0
 
 Accedi all'applicazione aprendo il tuo browser web e visitando l'indirizzo:
 
-http://localhost:8080/
+http://localhost:8080
