@@ -35,14 +35,9 @@ git clone https://github.com/CerratoAndrea/Meteo.git
 cd meteo
 ```
 
-### Compila il progetto con Maven
+### Compila il progetto
 ```sh
-mvn clean package
-```
-
-### Esegui l'applicazione
-```sh
-java -jar target/il-nome-del-tuo-jar.jar
+./mvnw clean package -DskipTests
 ```
 
 Apri il tuo browser e vai a:  
@@ -52,7 +47,7 @@ Apri il tuo browser e vai a:
 
 ### Costruisci l'immagine Docker
 ```sh
-docker build -t meteo-app:1.0 .
+docker build -t meteo-app .
 ```
 
 ### Esegui il container Docker
